@@ -1,0 +1,4 @@
+/*access_key=8fd97f726bfc7c0d8926297498d35e01
+currencies=EUR,GBP,CAD,PLN
+source=USD
+format=1*/
