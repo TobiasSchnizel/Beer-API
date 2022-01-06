@@ -2,8 +2,8 @@ package web
 
 import (
 	"encoding/json"
-	"github.com/TobiasSchnizel/Beer-API/gadgets/beers/gateway"
-	"github.com/TobiasSchnizel/Beer-API/gadgets/beers/models"
+	"github.com/TobiasSchnizel/Beer-API/beers/gateway"
+	"github.com/TobiasSchnizel/Beer-API/beers/models"
 	"github.com/TobiasSchnizel/Beer-API/internal/database"
 	"net/http"
 )

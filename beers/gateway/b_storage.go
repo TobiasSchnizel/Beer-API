@@ -1,7 +1,7 @@
 package gateway
 
 import (
-	"github.com/TobiasSchnizel/Beer-API/gadgets/beers/models"
+	"github.com/TobiasSchnizel/Beer-API/beers/models"
 	"github.com/TobiasSchnizel/Beer-API/internal/database"
 	"github.com/TobiasSchnizel/Beer-API/internal/logs"
 )
