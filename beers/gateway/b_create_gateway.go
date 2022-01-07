@@ -13,5 +13,5 @@ type BeerCreateGtw struct {
 }
 
 func NewBeerCreateGateway(client *database.MySqlClient) BeerCreateGateway {
-	return &BeerCreateGtw{&SBeerStorage{client}}
+	return &BeerCreateGtw{&BeerStorage{client}}
 }

@@ -15,13 +15,13 @@ type Review struct {
 	BeerID  int64
 }
 
-type CreatereviewCMD struct {
+type CreateReviewCMD struct {
 	Stars   int    `json:"stars"`
 	Comment string `json:"comment"`
 	BeerID  int64  `json:"beer_id"`
 }
 
-func (cmd *CreatereviewCMD) validate() error {
+func (cmd *CreateReviewCMD) validate() error {
 	if cmd.Stars < 1 || cmd.Stars > 5 {
 		return errors.New("stars must be between 1 - 5")
 	}

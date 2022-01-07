@@ -7,14 +7,14 @@ import (
 )
 
 type BeerStorageGateway interface {
-	Add(cmd *models.CreateBeerCMD) (*models.Beer, error)
+	create(cmd *models.CreateBeerCMD) (*models.Beer, error)
 	//FindById(id int) (*models.Beer, error)
 }
 type BeerStorage struct {
 	*database.MySqlClient
 }
 
-func (s *BeerStorage) BeerCreateGateway(cmd *models.CreateBeerCMD) (*models.Beer, error) {
+func (s *BeerStorage) create(cmd *models.CreateBeerCMD) (*models.Beer, error) {
 	tx, err := s.MySqlClient.Begin()
 
 	if err != nil {

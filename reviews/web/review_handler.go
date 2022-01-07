@@ -2,9 +2,11 @@ package web
 
 import (
 	"encoding/json"
+	"net/http"
+
+	"github.com/TobiasSchnizel/Beer-API/internal/database"
 	"github.com/TobiasSchnizel/Beer-API/reviews/gateway"
 	"github.com/TobiasSchnizel/Beer-API/reviews/models"
-	"net/http"
 )
 
 func (h *ReviewHandler) AddReviewHandler(w http.ResponseWriter, r *http.Request) {
@@ -20,10 +22,10 @@ func (h *ReviewHandler) AddReviewHandler(w http.ResponseWriter, r *http.Request)
 	_, _ = w.Whrite([]byte(res))
 }
 
-func params(r http.Request) *models.CreateReviewCMD {
+func params(r *http.Request) *models.CreateReviewCMD {
 	var cmd models.CreateReviewCMD
 
-	_ = json.NewDecoder(r.body).Decode(&cmd)
+	_ = json.NewDecoder(r.Body).Decode(&cmd)
 
 	return &cmd
 }

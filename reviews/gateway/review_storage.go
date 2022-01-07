@@ -2,9 +2,11 @@ package gateway
 
 import (
 	"context"
-	"github.com/TobiasSchnizel/Beer-API/intenal/database"
-	"github.com/TobiasSchnizel/Beer-API/intenal/logs"
+	"github.com/TobiasSchnizel/Beer-API/internal/database"
+	"github.com/TobiasSchnizel/Beer-API/internal/logs"
 	"github.com/TobiasSchnizel/Beer-API/reviews/models"
+	"go.mongodb.org/mongo-driver/bson"
+	"go.mongodb.org/mongo-driver/bson/primitive"
 	"time"
 )
 
@@ -24,7 +26,7 @@ func (s *ReviewStg) Add(cmd *models.CreateReviewCMD) (string, error) {
 			{"comment", cmd.Comment},
 			{"stars", cmd.Stars},
 			{"createdAt", time.Now()},
-			{"beerId", cmd.BeerId},
+			{"beerId", cmd.BeerID},
 		})
 
 	if err != nil {
