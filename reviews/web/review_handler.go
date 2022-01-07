@@ -19,7 +19,7 @@ func (h *ReviewHandler) AddReviewHandler(w http.ResponseWriter, r *http.Request)
 	}
 
 	w.WriteHeader(http.StatusOK)
-	_, _ = w.Whrite([]byte(res))
+	_, _ = w.Write([]byte(res))
 }
 
 func params(r *http.Request) *models.CreateReviewCMD {

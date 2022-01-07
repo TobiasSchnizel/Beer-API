@@ -17,12 +17,12 @@ const (
 )
 
 func main() {
-	_ = logs.initLogger()
+	_ = logs.InitLogger()
 
-	client := database.NewSqlClient("root:root@tcp(localhost:3308)/beers_review")
-	//doMigrate(client, beers_review)
+	client := database.NewSqlClient("root:root@tcp(localhost:3306)/beer")
+	doMigrate(client, "beer")
 
-	mongoClient := web.NewCreateBeerHandler("localhost")
+	mongoClient := database.NewMongoClient("localhost")
 
 	reviewHandler := reviews.NewReviewHandler(mongoClient)
 
@@ -32,8 +32,8 @@ func main() {
 	server.Run()
 }
 
-func doMigrate(client *database.MysqlClient, dbName string) {
-	driver, _ := migration.WithInstance(client.DB, &migration.Config())
+func doMigrate(client *database.MySqlClient, dbName string) {
+	driver, _ := migration.WithInstance(client.DB, &migration.Config{})
 	m, err := migrate.NewWithDatabaseInstance(
 		migrationsRootFolder,
 		dbName,

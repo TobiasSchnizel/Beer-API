@@ -26,4 +26,3 @@ func NewSqlClient(source string) *MySqlClient {
 func (c *MySqlClient) ViewStats() sql.DBStats {
 	return c.Stats()
 }
-
